@@ -24,28 +24,30 @@ export const putDb = async (content) => {
   // A transaction method is you setting the level of authorization to access the database
   // note: There is `readwrite` and `readonly`, and 'jate' is targetting that specific database in openDB
   // Must be 'readwrite' as you are updating and not just reading the code
-  // const tx = jateDb.transaction('jate', 'readwrite');
-  // // Open up the desired object store
-  // const store = tx.objectStore('jate');
-  // // Updating specific information using `.put`
-  // // The keys are `id` and `jate`
-  // // 'spinner' is found in the index.js
-  // const request = store.put({ id: id, spinner: content });
-  // const result = await request;
-  // console.log('🚀 - data saved to the database', result);
+  const tx = jateDb.transaction('jate', 'readwrite');
+  // Open up the desired object store
+  const store = tx.objectStore('jate');
+  // Updating specific information using `.put`
+  // The keys are `id` and `jate`
+  // 'spinner' is found in the index.js
+  const request = store.put({ id: Math.floor(Math.random() * 100000), content });
+  const result = await request;
+  console.log('🚀 - data saved to the database', result);
 };
 
 
 // TODO: Add logic for a method that gets all the content from the database
 export const getDb = async () => {
-  // console.log('GET all from the database');
-  // const jateDb = await openDB('jate', 1);
-  // const tx = jateDb.transaction('jate', 'readonly');
-  // const store = tx.objectStore('jate');
-  // const request = store.getAll();
-  // const result = await request;
-  // console.log('editor', result);
-  // return result;
+  console.log('GET all from the database');
+  const jateDb = await openDB('jate', 1);
+  const tx = jateDb.transaction('jate', 'readonly');
+  const store = tx.objectStore('jate');
+  const request = store.getAll();
+  const result = await request;
+  console.log('main', result);
+  // return result[0].content;
+  // defensive programming (if statement)
+  return result.pop().content;
 };
 
 initdb();
