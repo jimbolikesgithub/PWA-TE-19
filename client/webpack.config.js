@@ -31,33 +31,33 @@ module.exports = () => {
      
       // Injects our custom service worker
       // `InjectManifest` is when we want the app to generate custom service worker file
-      // new InjectManifest({
-      //   swSrc: './src-sw.js',
-      //   // This is the file which will be generated into the dist folder, and can be called ANYTHING (ex. pikachu.js)
-      //   swDest: 'src-sw.js',
-      // }),
+      new InjectManifest({
+        swSrc: './src-sw.js',
+        // This is the file which will be generated into the dist folder, and can be called ANYTHING (ex. pikachu.js)
+        swDest: 'src-sw.js',
+      }),
 
       // Creates a manifest.json file.
       // `WebpackPwaManifest` allows us to specify all `manifest.json` file content 
-      // new WebpackPwaManifest({
-      //   fingerprints: false,
-      //   inject: true,
-      //   name: 'Text Editor',
-      //   short_name: 'J.A.T.E',
-      //   description: 'Allows you to code on the browser.',
-      //   background_color: '#225ca3',
-      //   theme_color: '#225ca3',
-      //   start_url: './',
-      //   publicPath: './',
-      //   // Placeholder logos on the left of an app
-      //   icons: [
-      //     {
-      //       src: path.resolve('src/images/logo.png'),
-      //       sizes: [96, 128, 192, 256, 384, 512],
-      //       destination: path.join('assets', 'icons'),
-      //     },
-      //   ],
-      // }),
+      new WebpackPwaManifest({
+        fingerprints: false,
+        inject: true,
+        name: 'Text Editor',
+        short_name: 'J.A.T.E',
+        description: 'Allows you to code on the browser.',
+        background_color: '#225ca3',
+        theme_color: '#225ca3',
+        start_url: './',
+        publicPath: './',
+        // Placeholder logos on the left of an app
+        icons: [
+          {
+            src: path.resolve('src/images/logo.png'),
+            sizes: [96, 128, 192, 256, 384, 512],
+            destination: path.join('assets', 'icons'),
+          },
+        ],
+      }),
     ],
 
     module: {
