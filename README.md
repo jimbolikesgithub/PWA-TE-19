@@ -38,12 +38,15 @@ client/
 
 + note: Make sure to run `npm run build` and `npm run start:dev` after specific changes, such as ones made to the database.
 
+
 GitHub 
 ----------
+https://github.com/jimbolikesgithub/PWA-TE-19
 <br/>
 
 Screenshot - 
 ----------
+![pwa-screenshot](https://user-images.githubusercontent.com/97565085/169675725-7f752fcb-11d9-459d-adb3-29c6a1139175.png)
 
 
 Acknowledgements
